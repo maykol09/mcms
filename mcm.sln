@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.572
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "mcm", "mcm\mcm.csproj", "{2D10018A-E199-4DB3-A0B5-B581083275F3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "mcm-DATA", "mcm-DATA\mcm-DATA.csproj", "{A7DAAB2B-3B7A-495F-B8EA-1BC04362FB7C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2D10018A-E199-4DB3-A0B5-B581083275F3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2D10018A-E199-4DB3-A0B5-B581083275F3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2D10018A-E199-4DB3-A0B5-B581083275F3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2D10018A-E199-4DB3-A0B5-B581083275F3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A7DAAB2B-3B7A-495F-B8EA-1BC04362FB7C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A7DAAB2B-3B7A-495F-B8EA-1BC04362FB7C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A7DAAB2B-3B7A-495F-B8EA-1BC04362FB7C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A7DAAB2B-3B7A-495F-B8EA-1BC04362FB7C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {723F25F0-0B14-4F7A-B8EB-13338917A012}
+	EndGlobalSection
+EndGlobal

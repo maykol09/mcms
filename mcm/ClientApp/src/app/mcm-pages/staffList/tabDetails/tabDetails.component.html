@@ -1,0 +1,40 @@
+<br />
+  <kendo-tabstrip (tabSelect)="onTabSelect($event)" class="questions">
+    <kendo-tabstrip-tab  [selected]="0 === selectedTab">
+      <ng-template kendoTabTitle>
+        <span class="k-link">
+          <i class="fa fa-address-book"></i>&nbsp; Consultation
+
+        </span>
+      </ng-template>
+        <ng-template kendoTabContent>
+          <div #consult> <staffList-consultation (sendToParent)="fromPersonDetails($event)" [person_id]="personId"></staffList-consultation></div>
+
+        </ng-template>
+    </kendo-tabstrip-tab>
+    <kendo-tabstrip-tab [selected]="1 === selectedTab">
+      <ng-template kendoTabTitle>
+        <span class="k-link">
+          <i class="fa fa-medkit" aria-hidden="true"></i>&nbsp; Medication
+
+        </span>
+      </ng-template>
+      <ng-template kendoTabContent>
+        <div #consult><staffList-medication [person_id]="personId"></staffList-medication></div>
+
+      </ng-template>
+    </kendo-tabstrip-tab>
+    <kendo-tabstrip-tab  [selected]="2 === selectedTab">
+      <ng-template kendoTabTitle>
+        <span class="k-link">
+          <i class="fa fa-h-square" aria-hidden="true"></i>&nbsp; Medical
+
+        </span>
+      </ng-template>
+      <ng-template kendoTabContent>
+        <div #consult><staffList-medical [person_id]="personId"></staffList-medical></div>
+
+      </ng-template>
+    </kendo-tabstrip-tab>
+  </kendo-tabstrip>
+

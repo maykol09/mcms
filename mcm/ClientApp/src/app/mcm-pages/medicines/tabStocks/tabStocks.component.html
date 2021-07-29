@@ -1,0 +1,25 @@
+
+  <kendo-tabstrip (tabSelect)="onTabSelect($event)" class="questions">
+    <kendo-tabstrip-tab  [selected]="0 === selectedTab">
+      <ng-template kendoTabTitle>
+        <span class="k-link">
+          <i class="fa fa-address-book"></i>&nbsp; Stocks Received
+        </span>
+      </ng-template>
+        <ng-template kendoTabContent>
+          <div #medicine> <medicine-received [med_id]="medId"></medicine-received></div>
+        </ng-template>
+    </kendo-tabstrip-tab>
+
+    <kendo-tabstrip-tab [selected]="1 === selectedTab">
+      <ng-template kendoTabTitle>
+        <span class="k-link">
+          <i class="fa fa-medkit" aria-hidden="true"></i>&nbsp; Stocks Issued
+        </span>
+      </ng-template>
+      <ng-template kendoTabContent>
+        <div #medicine><medicine-issued [med_id]="medId"></medicine-issued></div>
+      </ng-template>
+    </kendo-tabstrip-tab>
+  </kendo-tabstrip>
+

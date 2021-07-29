@@ -1,0 +1,90 @@
+<div class="formsPage row">
+  <ng-template #template let-anchor>
+    <span>{{ anchor.nativeElement.innerText }}</span>
+  </ng-template>
+  <div class="nice"
+       style="width:290px;display:inline-block;float:left"
+       kendoTooltip
+       showOn="none"
+       [tooltipTemplate]="template"
+       filter=".k-grid td"
+       (mouseover)="showTooltip($event)">
+
+
+    <kendo-grid responsiveHeightDirective
+                [data]="gridData"
+                [filterable]="showFilter"
+                [filter]="state.filter"
+                [selectable]="{
+                  mode: 'single'
+                }"
+                [pageable]="{
+                  buttonCount: buttonCount,
+                  previousNext: previousNext,
+                  info: false
+                }"
+                [skip]="skip"
+                [pageSize]="pageSize"
+                (pageChange)="pageChange($event)"
+                (sortChange)="sortChange($event)"
+                (dataStateChange)="filterChange($event)"
+                [kendoGridSelectBy]="true"
+                [selectedKeys]="mySelection">
+
+      <ng-template kendoGridToolbarTemplate>
+        <div class="showFilter checkbox checkbox-primary">
+          <input type="checkbox"
+                 class="k-checkbox"
+                 id="showHideFilter"
+                 [checked]="showFilter"
+                 (click)="showHideFilter()">
+          <label for="showHideFilter" class="k-checkbox-label">
+            <i class="fa fa-filter"
+               aria-hidden="true"></i> Show Filter
+          </label>
+        </div>
+
+        <button type="button" class="k-primary btn btn-success float-right margin36" (click)="addMedicine()">
+          <i class="fa fa-plus" aria-hidden="true"></i> New Data
+        </button>
+      </ng-template>
+      <kendo-grid-column width="7">
+        <ng-template kendoGridCellTemplate let-dataItem>
+          <button type="button" class="k-danger btn btn-danger btn-xs" (click)="DeleteMedicine(dataItem.med_id)">
+            <i class="fa fa-times" aria-hidden="true"></i>
+          </button>
+        </ng-template>
+      </kendo-grid-column>
+      <kendo-grid-column field="med_name" title="Medicines" width="40">
+        <ng-template kendoGridCellTemplate let-dataItem>
+          <div (click)="GetMedicineInfo(dataItem.med_id, dataItem.med_name)">
+            <i class="fa fa-times" style="color:red;" aria-hidden="true" *ngIf="!dataItem.is_active"></i>
+            {{dataItem.med_name}}
+          </div>
+        </ng-template>
+        <ng-template kendoGridFooterTemplate let-column let-aggregates>
+          <span style="font-weight:700"> Total Medicine: {{TotalRecords()}}</span>
+        </ng-template>
+      </kendo-grid-column>
+
+    </kendo-grid>
+  </div>
+
+  <div class="sample2" style="margin-left:15px;" [ngStyle]="offsetStyle">
+    <medicineList-medicineDetails [med_id]="medId" (sendToParent)="fromMedicineDetails($event)"></medicineList-medicineDetails>
+    <medicine-tabStocks  [med_id]="medId" *ngIf="!hideTab"></medicine-tabStocks>
+
+    <div class="row" style="width:102%;" *ngIf="hideTab">
+      <div class="col col-md-6" #medicine>
+        <medicine-received [med_id]="medId"></medicine-received>
+      </div>
+      <div class="col col-md-6">
+        <medicine-issued [med_id]="medId"></medicine-issued>
+      </div>
+    </div>
+
+
+  </div>
+</div>
+
+

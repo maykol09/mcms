@@ -1,0 +1,55 @@
+.instructions {
+  background-color: #efefef;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+.title{
+  font-weight:700;
+}
+label {
+  display: block !important;
+  margin-top:5px;
+}
+
+.showFilter {
+  margin-left: 18px;
+  margin-top: 4px;
+  margin-bottom: 15px;
+  display: inline-block;
+}
+
+.margin36 {
+  margin-top: 6px;
+}
+
+.searchDiv {
+  display: inline-block;
+  margin: 10px 18px;
+  position: absolute;
+}
+
+.marginLeft10 {
+  margin-left: 10px;
+}
+
+.formsPage {
+  /*padding-left: 10px;*/
+  margin-top: 59px;
+  margin-left: 8px;
+  background: #fff;
+  margin-right: 0px;
+}
+
+
+
+
+label {
+  font-weight: 600;
+  font-size: 13px;
+}
+
+
+
+.text-primary {
+  margin-left: -15px;
+}

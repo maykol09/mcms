@@ -1,0 +1,132 @@
+<form [formGroup]="personDetails">
+  <div class="card" style="margin-bottom:5px;">
+    <div class="card-header">
+      <div class="row">
+        <div class="col-md-6"><i class="fa fa-user" aria-hidden="true"></i> Person details </div>
+        <div class="col-md-6">
+          <div class="form-inline pull-right">
+            <div class="mr-3" *ngIf="email">
+              <a class="text-white" href="mailto:ogdocm@who.int"><i class="fa fa-envelope"></i> {{email}}</a>
+            </div>
+            <div class="mr-3" *ngIf="phone_no">
+              <i class="fa fa-phone"></i> {{phone_no}}
+            </div>
+            <div *ngIf="cp_no"><i class="fa fa-mobile"></i> {{cp_no}}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="row form-group" [hidden]="addNew">
+        <label class="col-md-1 col-form-label">Staff suggestion</label>
+        <div class="col-md-3">
+          <kendo-autocomplete id="visit"
+                              #autocomplete
+                              [data]="name"
+                              [valueField]="'name'"
+                              (valueChange)="nameChange($event)"
+                              [filterable]="true"
+                              (filterChange)=nameFilterChange($event)
+
+                              [suggest]="true"
+                              [placeholder]=""
+                              class="col-lg-12 col-sm-12">
+          </kendo-autocomplete>
+        </div>
+      </div>
+      <div class="row form-group">
+
+        <label class="col-md-1 col-form-label">Last name<span class="required">*</span></label>
+        <div class="col-md-3">
+          <input class="form-contrl form-control-sm ng-untouched ng-pristine"
+                 type="text"
+                 [ngClass]="{'redBorder': formControl.last_name.invalid && formControl.last_name.touched}"
+                 formControlName="last_name">
+        </div>
+        <label class="col-md-1 col-form-label col-md-cust-12 nowrap">First name<span class="required">*</span></label>
+        <div class="col-md-3">
+          <input class="form-contrl form-control-sm"
+                 type="text"
+                 [ngClass]="{'redBorder': formControl.first_name.invalid && formControl.first_name.touched}"
+                 formControlName="first_name" />
+        </div>
+        <label class="col-md-1 col-form-label ">Middle name</label>
+        <div class="col-md-3 col-md-cust-20">
+          <input class="form-control form-control-sm ng-untouched ng-pristine" type="text" formControlName="middle_name">
+        </div>
+      </div>
+      <div class="row form-group">
+        <label class="col-md-1 col-form-label nowrap">Date of birth<span class="required">*</span></label>
+        <div class="col-md-3">
+          <kendo-datepicker format="dd MMM yyyy"
+                            placeholder="dd MMM yyyy"
+                            (valueChange)="birthDateChange($event)"
+                            [ngClass]="{'redBorder': formControl.birth_date.invalid && formControl.birth_date.touched}"
+                            formControlName="birth_date">
+          </kendo-datepicker>
+        </div>
+        <label class="col-md-1 col-form-label nowrap">Age</label>
+        <div class="col-md-3">
+          <input class="form-control form-control-sm ng-untouched ng-pristine" type="text" formControlName="age">
+        </div>
+
+        <label class="col-md-1 col-form-label nowrap" style="padding-right:0px;">
+          File No.
+        </label>
+        <div class="col-md-3 col-md-cust-20">
+          <input numbersOnly class="form-control form-control-sm" type="text" formControlName="sfile_no" />
+        </div>
+      </div>
+      <div class="row form-group">
+
+        <label class="col-md-1 col-form-label nowrap" style="padding-right:0px;">
+          Allergy
+        </label>
+        <div class="col-md-3 col-md-cust-20">
+          <textarea style="height:85px;display:inline-block;" class="form-control form-control-sm" type="text" formControlName="allergy">
+      </textarea>
+        </div>
+        <label class="col-md-1 col-form-label col-md-cust-12 nowrap">Unit</label>
+        <div class="col-md-3">
+          <input class="form-control form-control-sm ng-untouched ng-pristine" type="text" formControlName="sub_unit_code">
+        </div>
+        <label class="col-md-1 col-form-label col-md-cust-12 nowrap" style="padding-right:0px;">Medical exam date</label>
+        <div class="col-md-3">
+          <!--<kendo-datepicker format="dd MMM yyyy"
+                placeholder="dd MMM yyyy"
+                formControlName="medical_exam_date">-->
+          <input class="form-control form-control-sm ng-untouched ng-pristine" type="text" formControlName="medical_exam_date">
+          <!--</kendo-datepicker>-->
+        </div>
+        <label style="display: inline-block !important; margin-top: -45px;" class="col-md-1 offset-md-4 col-form-label col-md-cust-12 nowrap">Category</label>
+        <div class="col-md-3 offset-md-5" style="margin-top: -42px;">
+          <input class="form-control form-control-sm ng-untouched ng-pristine" type="text" formControlName="sis_employee_type">
+        </div>
+      </div>
+      <button class="btn btn-success btn-md" style="margin-top: -25px; float:right;z-index:99;" (click)="SavePersonDetails()"><i class="fa fa-save"></i> Save</button>
+    </div>
+  </div>
+  <!--<div class="row form-group">
+    <div class="col-md-12">
+      <div class="card bg-primary text-white">
+        <div class="card-body" style="padding: .5rem;">
+          <div class="row">
+            <div class="col-md-6"><i class="fa fa-user" aria-hidden="true"></i> Person details </div>
+            <div class="col-md-6">
+              <div class="form-inline pull-right">
+                <div class="mr-3">
+                  <a class="text-white" href="mailto:ogdocm@who.int"><i class="fa fa-envelope"></i> {{email}}</a>
+                </div>
+                <div class="mr-3">
+                  <a class="text-white" href="tel:"><i class="fa fa-phone"></i> </a>
+                </div>
+                <div><a class="text-white" href="tel:"><i class="fa fa-mobile"></i> </a></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>-->
+
+</form>

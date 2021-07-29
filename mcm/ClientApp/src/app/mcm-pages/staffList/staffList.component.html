@@ -1,0 +1,115 @@
+<div class="formsPage row">
+
+  <div class="nice" style="width:290px;display:inline-block;float:left">
+    <kendo-grid responsiveHeightDirective
+                [data]="staffList"
+                [filterable]="showFilter"
+                [filter]="state.filter"
+                [selectable]="{
+                  mode: 'single'
+                }"
+                [pageable]="{
+                  buttonCount: buttonCount,
+                  previousNext: previousNext,
+                  info: false
+                }"
+                [pageSize]="pageSize"
+                [skip]="skip"
+                (pageChange)="pageChange($event)"
+                (sortChange)="sortChange($event)"
+                (dataStateChange)="filterChange($event)"
+                [kendoGridSelectBy]="true"
+                [selectedKeys]="mySelection">
+
+      <ng-template kendoGridToolbarTemplate>
+        <div class="showFilter checkbox checkbox-primary">
+          <input type="checkbox"
+                 class="k-checkbox"
+                 id="showHideFilter"
+                 [checked]="showFilter"
+                 (click)="showHideFilter()">
+          <label for="showHideFilter" class="k-checkbox-label">
+            <i class="fa fa-filter"
+               aria-hidden="true"></i> Show Filter
+          </label>
+        </div>
+
+        <button type="button" class="k-primary btn btn-success float-right margin36" (click)="addStaff()">
+          <i class="fa fa-plus" aria-hidden="true"></i> New Data
+        </button>
+      </ng-template>
+      <kendo-grid-column width="7">
+        <ng-template kendoGridCellTemplate let-dataItem>
+          <button type="button" class="k-danger btn btn-danger btn-xs" (click)="DeleteStaff(dataItem.person_id)">
+            <i class="fa fa-times" aria-hidden="true"></i>
+          </button>
+        </ng-template>
+      </kendo-grid-column>
+      <kendo-grid-column field="name" title="Name" width="40">
+        <ng-template kendoGridCellTemplate let-dataItem>
+          <div (click)="GetStaffInfo(dataItem.person_id, dataItem.name, dataItem.sis_person_id)"
+               style="width:100%;">
+            <i class="fa fa-user" aria-hidden="true" *ngIf="dataItem.sis_person_id"></i>
+            {{dataItem.name}}
+          </div>
+        </ng-template>
+        <ng-template kendoGridFooterTemplate let-column let-aggregates>
+          <span style="font-weight:700"> Total Staff: {{TotalRecords()}}</span>
+        </ng-template>
+      </kendo-grid-column>
+
+    </kendo-grid>
+  </div>
+
+
+  <div class="sample1" *ngIf="!hidePic">
+    <div class="profilePic">
+      <div class="card hovercard">
+        <div class="cardheader"></div>
+        <div class="avatar">
+          <a style="cursor:pointer;">
+            <img src="./assets/images/avatar-default.png">
+            <img #img alt="" style="margin-top:-134px" src="">
+          </a>
+        </div>
+        <div class="info"><div class="title"><a href="javascript: return false;" target="_blank">{{name}}</a></div><div class="desc">  </div></div>
+      </div>
+    </div>
+    <div class="profilePic" style="margin-top:-15px;">
+      <div class="row">
+        <div class="col-md-12">
+          <ul class="nav nav-pills flex-column sis-left-menu gray-bg">
+            <li class="nav-item">
+              <a class="nav-link active" (click)="activeLink($event, 1)" [ngClass]="{'active': selectedItem == 1}"><i class="fa fa-address-book"></i> Consultation</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" (click)="activeLink($event, 2)" [ngClass]="{'active': selectedItem == 2}"><i class="fa fa-medkit" aria-hidden="true"></i> Medication</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" (click)="activeLink($event, 3)" [ngClass]="{'active': selectedItem == 3}"><i class="fa fa-h-square" aria-hidden="true"></i> Medical</a>
+            </li>
+
+          </ul>
+
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="sample2" style="margin-left:15px;" [ngStyle]="offsetStyle">
+    <staffList-personDetails (sendToParent)="fromPersonDetails($event)"
+                             (sendToStaffList)="fromPersonDetailsNewStaff($event)"
+                             [person_id]="personId">
+    </staffList-personDetails>
+    <staffList-tabDetails *ngIf="!hideTab" [person_id]="personId" ></staffList-tabDetails>
+    <div *ngIf="hideTab">
+      <div #consult>
+        <staffList-consultation *ngIf="!consultationHid" [person_id]="personId"></staffList-consultation>
+      </div>
+      <staffList-medication *ngIf="!medicationHid" [person_id]="personId"></staffList-medication>
+      <staffList-medical *ngIf="!medicalHid" [person_id]="personId"></staffList-medical>
+    </div>
+
+  </div>
+</div>
+
+

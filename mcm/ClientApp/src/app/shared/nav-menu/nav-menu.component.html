@@ -1,0 +1,91 @@
+<nav class="navbar who-nav navbar-expand-sm bg-light">
+  <div class="container-fluid" style="padding-right: 0;">
+    <div class="who-header">
+      <div class="form-inline">
+        <div style="margin-left: 5px;">
+          <a style="cursor: pointer;">
+            <span style="color: white; font-size: 16px;">
+              <img src="./assets/images/wpro_logo.png"
+                   style="padding-right: 8px;height: 45px;margin-bottom: 2px;" />
+              <span class="systemTitle">Medical Consultation Monitoring System</span>
+
+            </span>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="collapse navbar-collapse pull-right">
+      <ul class="nav navbar-nav navbar-nav  who-nav-name-title">
+        <!--<li class="dropdown">
+          <a class="dropdown-toggle" role="button" aria-haspopup="true" aria-expanded="false"
+             data-toggle="dropdown">{{username}}</a>
+        </li>-->
+        <li style="padding: 12px;">
+          <div class="dropdown">
+            <span class="dropbtn" data-toggle="dropdown">
+              <a class="dropdown-toggle text-white" role="button" aria-haspopup="true" aria-expanded="false" data-toggle="dropdown">
+                <i class="fa fa-user" aria-hidden="true"></i> {{username}}
+              </a>
+            </span>
+
+          </div>
+        </li>
+      </ul>
+      <ul class="navbar-nav ml-auto top-margin">
+        <li class="nav-item" (click)="activeLink('staffList', 1)" [ngClass]="{'active': selectedItem === 1}">
+          <span class="nav-link text-white" style="cursor:pointer">
+            <a>
+              <i class="fa fa-user"
+                 aria-hidden="true"></i> Staff List
+            </a>
+          </span>
+        </li>
+
+        <li class="nav-item" (click)="activeLink('medicines', 3)" [ngClass]="{'active': selectedItem === 3}">
+          <div class="dropdown">
+            <span class="nav-link text-white dropbtn" data-toggle="dropdown">
+              <a><i class="fa fa-h-square" aria-hidden="true"></i> Medicines</a>
+            </span>
+
+          </div>
+        </li>
+        <li class="nav-item" (click)="activeLink('receipts', 4)" [ngClass]="{'active': selectedItem === 4}">
+          <div class="dropdown">
+            <span class="nav-link text-white dropbtn" data-toggle="dropdown">
+              <a routerLink="medicines"><i class="fa fa-file-text-o" aria-hidden="true"></i> Receipts</a>
+            </span>
+
+          </div>
+        </li>
+        <li class="nav-item dropdown" [ngClass]="{'active': selectedItem === 2}">
+
+          <span class="nav-link text-white" style="cursor:pointer">
+            <a routerLink="reports">
+              <i class="fa fa-area-chart" aria-hidden="true"></i> Reports
+            </a>
+          </span>
+          <div class="dropdown-content">
+            <span (click)="reportsActiveLink('reports', 2, 1)"><i class="fa fa-user" aria-hidden="true"></i> Consultation</span>
+            <span (click)="reportsActiveLink('reports', 2, 2)"><i class="fa fa-medkit" aria-hidden="true"></i> Medication</span>
+            <span (click)="reportsActiveLink('reports', 2, 3)"><i class="fa fa-h-square" aria-hidden="true"></i> Medicine</span>
+          </div>
+        </li>
+        <li class="nav-item dropdown"  [ngClass]="{'active': selectedItem === 5}">
+
+          <span class="nav-link" style="cursor:pointer">
+            <a routerLink="maintenance">
+              <i class="fa fa-cog" aria-hidden="true"></i> Maintenance
+            </a>
+          </span>
+          <div class="dropdown-content">
+            <span (click)="maintenanceActiveLink('maintenance/user', 5)"><i class="fa fa-user" aria-hidden="true"></i> User</span>
+            <span (click)="maintenanceActiveLink('maintenance/reference', 5)"><i class="fa fa-file-text" aria-hidden="true"></i> Reference</span>
+          </div>
+
+        </li>
+      </ul>
+
+    </div>
+  </div>
+</nav>
+

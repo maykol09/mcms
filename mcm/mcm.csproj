@@ -1,0 +1,191 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+    <TypeScriptCompileBlocked>true</TypeScriptCompileBlocked>
+    <TypeScriptToolsVersion>Latest</TypeScriptToolsVersion>
+    <IsPackable>false</IsPackable>
+    <SpaRoot>ClientApp\</SpaRoot>
+    <DefaultItemExcludes>$(DefaultItemExcludes);$(SpaRoot)node_modules\**</DefaultItemExcludes>
+
+    <!-- Set this to true if you enable server-side prerendering -->
+    <BuildServerSideRenderer>false</BuildServerSideRenderer>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.App" />
+    <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.1.2" PrivateAssets="All" />
+    <PackageReference Include="Microsoft.AspNetCore.SpaServices.Extensions" Version="2.1.1" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.1.9" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- Don't publish the SPA source files, but do show them in the project files list -->
+    <Content Remove="$(SpaRoot)**" />
+    <None Include="$(SpaRoot)**" Exclude="$(SpaRoot)node_modules\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="ClientApp\src\app\mcm-pages\maintenance\maintenance.module.ts" />
+    <None Remove="ClientApp\src\app\mcm-pages\maintenance\maintenance.service.ts" />
+    <None Remove="ClientApp\src\app\mcm-pages\maintenance\reference\reference.component.ts" />
+    <None Remove="ClientApp\src\app\mcm-pages\maintenance\user\user.component.ts" />
+    <None Remove="ClientApp\src\app\mcm-pages\medicines\issuedMed\issuedMed.component.ts" />
+    <None Remove="ClientApp\src\app\mcm-pages\medicines\issuedMed\issuedMed.module.ts" />
+    <None Remove="ClientApp\src\app\mcm-pages\medicines\issuedMed\issuedMed.service.ts" />
+    <None Remove="ClientApp\src\app\mcm-pages\medicines\medicine.component.ts" />
+    <None Remove="ClientApp\src\app\mcm-pages\medicines\medicine.module.ts" />
+    <None Remove="ClientApp\src\app\mcm-pages\medicines\medicine.service.ts" />
+    <None Remove="ClientApp\src\app\mcm-pages\medicines\medicineDetails\medicineDetails.component.ts" />
+    <None Remove="ClientApp\src\app\mcm-pages\medicines\medicineDetails\medicineDetails.module.ts" />
+    <None Remove="ClientApp\src\app\mcm-pages\medicines\medicineDetails\medicineDetails.service.ts" />
+    <None Remove="ClientApp\src\app\mcm-pages\medicines\receivedMed\receivedMed.component.ts" />
+    <None Remove="ClientApp\src\app\mcm-pages\medicines\receivedMed\receivedMed.module.ts" />
+    <None Remove="ClientApp\src\app\mcm-pages\medicines\receivedMed\receivedMed.service.ts" />
+    <None Remove="ClientApp\src\app\mcm-pages\medicines\tabStocks\tabStocks.component.ts" />
+    <None Remove="ClientApp\src\app\mcm-pages\medicines\tabStocks\tabStocks.module.ts" />
+    <None Remove="ClientApp\src\app\mcm-pages\receipts\modal\grid\receiptsGrid.component.ts" />
+    <None Remove="ClientApp\src\app\mcm-pages\receipts\modal\grid\receiptsGrid.module.ts" />
+    <None Remove="ClientApp\src\app\mcm-pages\receipts\modal\receiptsModal.component.ts" />
+    <None Remove="ClientApp\src\app\mcm-pages\receipts\modal\receiptsModal.module.ts" />
+    <None Remove="ClientApp\src\app\mcm-pages\receipts\receipts.component.ts" />
+    <None Remove="ClientApp\src\app\mcm-pages\receipts\receipts.module.ts" />
+    <None Remove="ClientApp\src\app\mcm-pages\receipts\receipts.service.ts" />
+    <None Remove="ClientApp\src\app\mcm-pages\reports\consultationRep\consultationRep.component.ts" />
+    <None Remove="ClientApp\src\app\mcm-pages\reports\consultationRep\consultationRep.module.ts" />
+    <None Remove="ClientApp\src\app\mcm-pages\reports\medicationRep\medicationRep.component.ts" />
+    <None Remove="ClientApp\src\app\mcm-pages\reports\medicationRep\medicationRep.module.ts" />
+    <None Remove="ClientApp\src\app\mcm-pages\reports\medicineRep\medicineRep.component.ts" />
+    <None Remove="ClientApp\src\app\mcm-pages\reports\medicineRep\medicineRep.module.ts" />
+    <None Remove="ClientApp\src\app\mcm-pages\reports\reports.component.ts" />
+    <None Remove="ClientApp\src\app\mcm-pages\reports\reports.module.ts" />
+    <None Remove="ClientApp\src\app\mcm-pages\reports\reports.service.ts" />
+    <None Remove="ClientApp\src\app\mcm-pages\staffList\consultation\consultation.component.ts" />
+    <None Remove="ClientApp\src\app\mcm-pages\staffList\consultation\consultation.module.ts" />
+    <None Remove="ClientApp\src\app\mcm-pages\staffList\consultation\consultation.service.ts" />
+    <None Remove="ClientApp\src\app\mcm-pages\staffList\consultation\modal\addConsultation.component.ts" />
+    <None Remove="ClientApp\src\app\mcm-pages\staffList\consultation\modal\addConsultation.module.ts" />
+    <None Remove="ClientApp\src\app\mcm-pages\staffList\consultation\modal\addConsultation.service.ts" />
+    <None Remove="ClientApp\src\app\mcm-pages\staffList\consultation\modal\medGrid\medGrid.component.ts" />
+    <None Remove="ClientApp\src\app\mcm-pages\staffList\consultation\modal\medGrid\medGrid.module.ts" />
+    <None Remove="ClientApp\src\app\mcm-pages\staffList\consultation\modal\medGrid\medGrid.service.ts" />
+    <None Remove="ClientApp\src\app\mcm-pages\staffList\medical\medical.component.ts" />
+    <None Remove="ClientApp\src\app\mcm-pages\staffList\medical\medical.module.ts" />
+    <None Remove="ClientApp\src\app\mcm-pages\staffList\medical\medical.service.ts" />
+    <None Remove="ClientApp\src\app\mcm-pages\staffList\medication\medication.component.ts" />
+    <None Remove="ClientApp\src\app\mcm-pages\staffList\medication\medication.module.ts" />
+    <None Remove="ClientApp\src\app\mcm-pages\staffList\medication\medication.service.ts" />
+    <None Remove="ClientApp\src\app\mcm-pages\staffList\medication\modal\addMedication.component.ts" />
+    <None Remove="ClientApp\src\app\mcm-pages\staffList\medication\modal\addMedication.module.ts" />
+    <None Remove="ClientApp\src\app\mcm-pages\staffList\medication\modal\addMedication.service.ts" />
+    <None Remove="ClientApp\src\app\mcm-pages\staffList\personDetails\personDetails.component.ts" />
+    <None Remove="ClientApp\src\app\mcm-pages\staffList\personDetails\personDetails.module.ts" />
+    <None Remove="ClientApp\src\app\mcm-pages\staffList\personDetails\personDetails.service.ts" />
+    <None Remove="ClientApp\src\app\mcm-pages\staffList\staffList.component.ts" />
+    <None Remove="ClientApp\src\app\mcm-pages\staffList\staffList.module.ts" />
+    <None Remove="ClientApp\src\app\mcm-pages\staffList\staffList.service.ts" />
+    <None Remove="ClientApp\src\app\mcm-pages\staffList\tabDetails\tabDetails.component.ts" />
+    <None Remove="ClientApp\src\app\mcm-pages\staffList\tabDetails\tabDetails.module.ts" />
+    <None Remove="ClientApp\src\app\shared\no-permision\no-permission.component.ts" />
+    <None Remove="ClientApp\src\app\shared\no-permision\no-permission.module.ts" />
+    <None Remove="ClientApp\src\app\shared\service\CustomRequestOptions.ts" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\mcm-DATA\mcm-DATA.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <TypeScriptCompile Include="ClientApp\src\app\mcm-pages\maintenance\maintenance.service.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\mcm-pages\maintenance\maintenance.module.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\mcm-pages\maintenance\reference\reference.component.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\mcm-pages\maintenance\user\user.component.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\mcm-pages\medicines\issuedMed\issuedMed.component.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\mcm-pages\medicines\issuedMed\issuedMed.module.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\mcm-pages\medicines\issuedMed\issuedMed.service.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\mcm-pages\medicines\medicine.component.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\mcm-pages\medicines\medicine.module.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\mcm-pages\medicines\medicine.service.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\mcm-pages\medicines\medicineDetails\medicineDetails.component.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\mcm-pages\medicines\medicineDetails\medicineDetails.module.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\mcm-pages\medicines\medicineDetails\medicineDetails.service.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\mcm-pages\medicines\receivedMed\receivedMed.component.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\mcm-pages\medicines\receivedMed\receivedMed.module.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\mcm-pages\medicines\receivedMed\receivedMed.service.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\mcm-pages\medicines\tabStocks\tabStocks.component.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\mcm-pages\medicines\tabStocks\tabStocks.module.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\mcm-pages\receipts\modal\grid\receiptsGrid.component.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\mcm-pages\receipts\modal\grid\receiptsGrid.module.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\mcm-pages\receipts\modal\receiptsModal.component.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\mcm-pages\receipts\modal\receiptsModal.module.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\mcm-pages\receipts\receipts.component.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\mcm-pages\receipts\receipts.module.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\mcm-pages\receipts\receipts.service.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\mcm-pages\reports\consultationRep\consultationRep.component.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\mcm-pages\reports\consultationRep\consultationRep.module.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\mcm-pages\reports\medicationRep\medicationRep.component.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\mcm-pages\reports\medicationRep\medicationRep.module.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\mcm-pages\reports\medicineRep\medicineRep.component.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\mcm-pages\reports\medicineRep\medicineRep.module.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\mcm-pages\reports\reports.component.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\mcm-pages\reports\reports.module.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\mcm-pages\reports\reports.service.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\mcm-pages\staffList\consultation\consultation.component.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\mcm-pages\staffList\consultation\consultation.module.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\mcm-pages\staffList\consultation\consultation.service.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\mcm-pages\staffList\consultation\modal\addConsultation.component.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\mcm-pages\staffList\consultation\modal\addConsultation.module.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\mcm-pages\staffList\consultation\modal\addConsultation.service.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\mcm-pages\staffList\consultation\modal\medGrid\medGrid.component.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\mcm-pages\staffList\consultation\modal\medGrid\medGrid.module.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\mcm-pages\staffList\consultation\modal\medGrid\medGrid.service.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\mcm-pages\staffList\medical\medical.component.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\mcm-pages\staffList\medical\medical.module.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\mcm-pages\staffList\medical\medical.service.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\mcm-pages\staffList\medication\medication.component.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\mcm-pages\staffList\medication\medication.module.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\mcm-pages\staffList\medication\medication.service.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\mcm-pages\staffList\medication\modal\addMedication.component.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\mcm-pages\staffList\medication\modal\addMedication.module.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\mcm-pages\staffList\medication\modal\addMedication.service.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\mcm-pages\staffList\personDetails\personDetails.component.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\mcm-pages\staffList\personDetails\personDetails.module.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\mcm-pages\staffList\personDetails\personDetails.service.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\mcm-pages\staffList\staffList.component.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\mcm-pages\staffList\staffList.module.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\mcm-pages\staffList\staffList.service.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\mcm-pages\staffList\tabDetails\tabDetails.component.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\mcm-pages\staffList\tabDetails\tabDetails.module.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\shared\no-permision\no-permission.component.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\shared\no-permision\no-permission.module.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\shared\service\CustomRequestOptions.ts" />
+  </ItemGroup>
+
+  <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">
+    <!-- Ensure Node.js is installed -->
+    <Exec Command="node --version" ContinueOnError="true">
+      <Output TaskParameter="ExitCode" PropertyName="ErrorCode" />
+    </Exec>
+    <Error Condition="'$(ErrorCode)' != '0'" Text="Node.js is required to build and run this project. To continue, please install Node.js from https://nodejs.org/, and then restart your command prompt or IDE." />
+    <Message Importance="high" Text="Restoring dependencies using 'npm'. This may take several minutes..." />
+    <Exec WorkingDirectory="$(SpaRoot)" Command="npm install" />
+  </Target>
+
+  <Target Name="PublishRunWebpack" AfterTargets="ComputeFilesToPublish">
+    <!-- As part of publishing, ensure the JS resources are freshly built in production mode -->
+    <Exec WorkingDirectory="$(SpaRoot)" Command="npm install" />
+    <Exec WorkingDirectory="$(SpaRoot)" Command="npm run build" />
+    <Exec WorkingDirectory="$(SpaRoot)" Command="npm run build:ssr -- --prod" Condition=" '$(BuildServerSideRenderer)' == 'true' " />
+
+    <!-- Include the newly-built files in the publish output -->
+    <ItemGroup>
+      <DistFiles Include="$(SpaRoot)dist\**; $(SpaRoot)dist-server\**" />
+      <DistFiles Include="$(SpaRoot)node_modules\**" Condition="'$(BuildServerSideRenderer)' == 'true'" />
+      <ResolvedFileToPublish Include="@(DistFiles->'%(FullPath)')" Exclude="@(ResolvedFileToPublish)">
+        <RelativePath>%(DistFiles.Identity)</RelativePath>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </ResolvedFileToPublish>
+    </ItemGroup>
+  </Target>
+
+</Project>

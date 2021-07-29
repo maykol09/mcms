@@ -1,0 +1,93 @@
+<div class="formsPage row">
+  <kendo-grid responsiveHeightDirective
+              style="width:100%"
+              id="userGrid"
+              [resizable]="true"
+              [data]="gridData"
+              [filterable]="showFilter"
+              [filter]="state.filter"
+              [pageable]='true'
+              [pageSize]="pageSize"
+              [skip]="skip"
+              (pageChange)="pageChange($event)"
+              [sort]="sort"
+              [sortable]="true"
+              (add)="AddData($event)"
+              (cellClick)="EditData($event)"
+              (sortChange)="sortChange($event)"
+              (dataStateChange)="filterChange($event)">
+
+    <ng-template kendoGridToolbarTemplate>
+      <div class="checkbox checkbox-primary" style="display:inline-block;">
+        <input [checked]="showFilter" type="checkbox" class="k-checkbox" id="showHideConFilter" (click)="showHideFilter()">
+        <label for="showHideConFilter" class="k-checkbox-label">
+          <i class="fa fa-filter"
+             aria-hidden="true"></i> Show Filter
+        </label>
+
+      </div>
+      <button type="button" class="k-primary btn btn-success float-right margin36" (click)="SaveUser()" style="margin-left:10px;">
+        <i class="fa fa-floppy-o" aria-hidden="true"></i> Save
+      </button>
+      <button *ngIf="isInEditingMode"
+              (click)="cancelHandler()"
+              style="margin-left:10px;"
+              class="k-primary btn btn-danger float-right margin36">
+        <i class="fa fa-times" aria-hidden="true"></i> Cancel
+      </button>
+      <button kendoGridAddCommand type="button" class="k-primary btn btn-primary float-right margin36">
+        <i class="fa fa-plus" aria-hidden="true"></i> Add user
+      </button>
+    </ng-template>
+    <kendo-grid-column [width]="7">
+      <ng-template kendoGridCellTemplate let-dataItem>
+        <div class="float-right">
+          <button type="button" class="k-primary btn btn-danger btn-sm" (click)="DeleteSelected(dataItem.user_id)" style="margin-left:10px;">
+            <i class="fa fa-trash" aria-hidden="true"></i>
+          </button>
+
+        </div>
+      </ng-template>
+      <ng-template kendoGridEditTemplate let-column="column" let-formGroup="formGroup" let-isNew="isNew">
+        <span></span>
+      </ng-template>
+    </kendo-grid-column>
+    <kendo-grid-column field="user_name" title="Username" width="40">
+      <ng-template kendoGridEditTemplate let-column="column" let-formGroup="formGroup" let-isNew="isNew">
+        <!--<input class="form-control col-lg-12 col-sm-12"
+               [formControl]="formGroup.get('user_name')"
+               type="text" />-->
+        <kendo-dropdownlist [data]="user_name"
+                            [filterable]="true"
+                            [textField]="'user_name'"
+                            [valueField]="'user_name'"
+                            [valuePrimitive]="true"
+                            (filterChange)="UserNameFilterChange($event)"
+                            [formControl]="formGroup.get('user_name')">
+        </kendo-dropdownlist>
+      </ng-template>
+    </kendo-grid-column>
+    <!--<kendo-grid-column field="user_level" title="User level" width="40">
+      <ng-template kendoGridEditTemplate let-column="column" let-formGroup="formGroup" let-isNew="isNew">
+        <input numbersOnly class="form-control col-lg-12 col-sm-12"
+               [formControl]="formGroup.get('user_level')"
+               type="text" />
+      </ng-template>
+    </kendo-grid-column>-->
+    <kendo-grid-column field="created_by" title="Created By" width="40">
+      <ng-template kendoGridEditTemplate let-column="column" let-formGroup="formGroup" let-isNew="isNew">
+        <input class="form-control col-lg-12 col-sm-12"
+               [formControl]="formGroup.get('created_by')"
+               type="text" />
+      </ng-template>
+    </kendo-grid-column>
+    <kendo-grid-column field="date_created" title="Date Created" width="40">
+      <ng-template kendoGridEditTemplate let-column="column" let-formGroup="formGroup" let-isNew="isNew">
+        <input class="form-control col-lg-12 col-sm-12"
+               [formControl]="formGroup.get('date_created')"
+               type="text" />
+      </ng-template>
+    </kendo-grid-column>
+   
+  </kendo-grid>
+</div>

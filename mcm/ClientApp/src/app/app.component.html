@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+
+<div [hidden]="loading">
+  <div class="preloader">
+    <div class="lds-ring">
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+  </div>
+</div>
+
+
+<div class='container-fluid'>
+  <app-nav-menu [hidden]="hideNav"></app-nav-menu>
+  <div *ngIf="showRouteResult">
+    <router-outlet></router-outlet>
+  </div>
+
+
+  <app-footer></app-footer>
+</div>

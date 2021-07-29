@@ -1,0 +1,56 @@
+.fitSize {
+    height: 100% !important;
+    width: 100% !important;
+}
+
+.k-diagram text {
+    font: 13px sans-serif !important;
+}
+
+.k-grid td, .k-grid th {
+    padding: .4em .6em;
+}
+
+.k-grid tr {
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.k-widget {
+    font-size: inherit;
+}
+
+div.k-popup {
+    font-size: 13px;
+}
+
+.k-dropdown .k-dropdown-wrap {
+    color: #495057;
+    background-color: #fff;
+    border-color: #ced4da;
+}
+
+.k-textbox {
+    border: none;
+    font-size: .875rem;
+}
+
+.k-textbox.k-state-disabled, .k-textbox:disabled, .k-textbox[disabled] {
+    background-color: #e9ecef;
+    opacity: 1;
+    color: #000;
+}
+
+.k-multiselect-wrap .k-button {
+    font-size: inherit;
+}
+
+.k-grid tr.k-state-selected {
+    border-color: inherit !important;
+    color: inherit !important;
+    background-color: rgba(0,123,255,.25) !important;
+}
+
+.custom-select.is-invalid, .form-control.ng-invalid, .was-validated .custom-select:invalid, .was-validated .form-control:invalid, .k-widget.ng-invalid {
+    border-color: #dc3545;
+}

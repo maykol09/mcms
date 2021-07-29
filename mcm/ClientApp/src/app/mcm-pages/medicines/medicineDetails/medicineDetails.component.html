@@ -1,0 +1,56 @@
+<form [formGroup]="medicineDetails">
+  <div class="card" style="margin-bottom:5px;">
+    <div class="card-header">
+  
+        <i class="fa fa-medkit" aria-hidden="true"></i> Medicine Details
+    
+    </div>
+    <div class="card-body">
+      <div class="row form-group">
+        <label class="col-md-1 col-form-label col-md-cust-12 nowrap">Med Name<span class="required">*</span></label>
+        <div class="col-md-3">
+          <input class="form-contrl form-control-sm"
+                 type="text"
+                 [ngClass]="{'redBorder': formControl.med_name.invalid && formControl.med_name.touched}"
+                 formControlName="med_name" />
+        </div>
+        <label class="col-md-1 col-form-label">Med Code</label>
+        <div class="col-md-3">
+          <input class="form-contrl form-control-sm ng-untouched ng-pristine"
+                 type="text"
+                 [ngClass]="{'redBorder': formControl.med_code.invalid && formControl.med_code.touched}"
+                 formControlName="med_code">
+        </div>
+
+        <label class="col-md-1 col-form-label ">Med Class</label>
+        <div class="col-md-3 col-md-cust-20">
+          <input class="form-control form-control-sm ng-untouched ng-pristine" type="text" formControlName="med_class">
+        </div>
+      </div>
+      <div class="row form-group">
+        <label class="col-md-1 col-form-label nowrap">Unit</label>
+        <div class="col-md-3">
+          <input class="form-contrl form-control-sm ng-untouched ng-pristine"
+                 [ngClass]="{'redBorder': formControl.med_unit.invalid && formControl.med_unit.touched}"
+                 type="text"
+                 formControlName="med_unit">
+        </div>
+        <label class="col-md-1 col-form-label nowrap">On Hand</label>
+        <div class="col-md-3">
+          <input numbersOnly class="form-control form-control-sm" type="text" formControlName="med_onhand" />
+        </div>
+
+        <div class="showFilter checkbox checkbox-primary" style="margin-left: 31px;">
+          <input type="checkbox" class="k-checkbox" id="showHideRecFilter" value="1" formControlName="is_active">
+          <label for="showHideRecFilter" class="k-checkbox-label">
+            Active
+          </label>
+        </div>
+      </div>
+      <div class="row form-group">
+        <span  class="col-md-6"> <i class="fa fa-times" style="color:red;" aria-hidden="true"></i> Inactive</span>
+      </div>
+        <button class="btn btn-success btn-md" style="margin-top: -45px; float:right;z-index:99;" (click)="SaveMedicineDetails()"><i class="fa fa-save"></i> Save</button>
+      </div>
+    </div>
+</form>

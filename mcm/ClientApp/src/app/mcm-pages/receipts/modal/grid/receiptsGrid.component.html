@@ -1,0 +1,85 @@
+
+<kendo-grid style="height:370px"
+            id="receiptsGrid"
+            [selectable]="{
+                checkboxOnly: true,
+                mode: 'multiple'
+            }"
+            [data]="gridData"
+            [filterable]="showFilter"
+            [filter]="state.filter"
+            [pageable]='true'
+            [pageSize]="pageSize"
+            [skip]="skip"
+            (pageChange)="pageChange($event)"
+            [sort]="sort"
+            [sortable]="{mode: 'single'}"
+            (sortChange)="sortChange($event)"
+            (dataStateChange)="filterChange($event)"
+            [kendoGridSelectBy]="true"
+            [selectedKeys]="mySelection"
+            (add)="AddMedData($event)"
+            (cellClick)="EditRecData($event)"
+            (selectedKeysChange)="onSelectedKeysChange($event)">
+
+  <ng-template kendoGridToolbarTemplate>
+
+    <div class="showFilter checkbox checkbox-primary">
+      <input type="checkbox" class="k-checkbox" id="showHideConMedFilter" (click)="showHideFilter()">
+      <label for="showHideConMedFilter" class="k-checkbox-label">
+        <i class="fa fa-filter"
+           aria-hidden="true"></i> Show Filter
+      </label>
+    </div>
+
+    <button type="button" class="k-primary btn btn-danger float-right margin36" (click)="DeleteAllSelected()" style="margin-left:10px;">
+      <i class="fa fa-trash" aria-hidden="true"></i> Delete
+    </button>
+    <button *ngIf="isInEditingMode"
+            (click)="cancelHandler()"
+            style="margin-left:10px;"
+            class="k-primary btn btn-danger float-right margin36">
+      <i class="fa fa-times" aria-hidden="true"></i> Cancel
+    </button>
+    <button kendoGridAddCommand type="button" class="k-primary btn btn-primary float-right margin36">
+      <i class="fa fa-plus" aria-hidden="true"></i> New Data
+    </button>
+
+  </ng-template>
+  <kendo-grid-checkbox-column width="7">
+    <ng-template kendoGridHeaderTemplate>
+      <input class="k-checkbox" id="selectAllConMedCheckboxId" kendoGridSelectAllCheckbox
+             (selectAllChange)="onSelectAllChange($event)">
+      <label class="k-checkbox-label" for="selectAllConMedCheckboxId" style="width:11px;"></label>
+    </ng-template>
+  </kendo-grid-checkbox-column>
+
+  <kendo-grid-column field="med_name" title="Medicine" width="30">
+    <ng-template kendoGridEditTemplate let-column="column" let-formGroup="formGroup" let-isNew="isNew">
+
+      <kendo-dropdownlist [data]="medicine"
+                          [filterable]="true"
+                          [textField]="'med_name'"
+                          [valueField]="'med_id'"
+                          [valuePrimitive]="true"
+                          (filterChange)="MedicineFilterChange($event)"
+                          (valueChange)="MedicineValueChange($event)"
+                          [formControl]="formGroup.get('med_name')">
+      </kendo-dropdownlist>
+    </ng-template>
+  </kendo-grid-column>
+  <kendo-grid-column field="quantity" editor="numeric" title="Quantity" width="20">
+  </kendo-grid-column>
+  <!--<kendo-grid-column field="cost" editor="numeric" title="Cost" width="20">
+
+  </kendo-grid-column>
+  <kendo-grid-column title="Total Cost" width="20">
+    <ng-template kendoGridCellTemplate let-dataItem>
+      <span>{{dataItem.quantity * dataItem.cost}}</span>
+    </ng-template>
+  </kendo-grid-column>-->
+  <kendo-grid-column field="remarks"  title="Remarks" width="40">
+
+  </kendo-grid-column>
+</kendo-grid>
+

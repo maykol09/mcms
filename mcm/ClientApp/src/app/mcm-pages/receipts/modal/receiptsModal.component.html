@@ -1,0 +1,78 @@
+
+<div class="addConsultation">
+  <form [formGroup]="addMedReceipts">
+    <div class="modal-header">
+      <h5 class="modal-title"><i class="fa fa-address-book"></i>  Add/Edit Receipts</h5>
+      <button type="button" class="close" aria-describedby="modal-title" (click)="closeModal()">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <div class="form-group col-lg-12 col-sm-12">
+        <div class="row">
+          <!--<div class="col-lg-6 col-sm-12">
+    <label for="stock_in_no" class="col-lg-12 labelQuestion">
+      Stock In No
+    </label>-->
+          <input id="stock_in_no"
+                 class="form-control col-lg-12 col-sm-12" formControlName="stock_in_no" [hidden]="true" />
+          <!--</div>-->
+          <div class="col-lg-6 col-sm-12">
+            <label for="date_received" class="col-lg-12 labelQuestion">
+              Date Received<span class="required">*</span>
+            </label>
+            <kendo-datepicker format="dd MMM yyyy"
+                              placeholder="dd MMM yyyy" formControlName="date_received">
+            </kendo-datepicker>
+          </div>
+          <div class="col-lg-6 col-sm-12">
+            <label for="invoice_no" class="col-lg-12 labelQuestion">
+              Invoice No<span class="required">*</span>
+            </label>
+            <input id="invoice_no"
+                   class="form-contrl col-lg-12 col-sm-12"
+                   [ngClass]="{'redBorder': formControl.invoice_no.invalid && formControl.invoice_no.touched}"
+                   formControlName="invoice_no" />
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-6 col-sm-12">
+            <!--<label for="supplier" class="col-lg-12 labelQuestion">
+              Supplier
+            </label>-->
+            <kendo-dropdownlist [data]="supplier"
+                                [filterable]="true"
+                                [textField]="'supplier_name'"
+                                [valueField]="'supplier_id'"
+                                [valuePrimitive]="true"
+                                (filterChange)="SupplierFilterChange($event)"
+                                formControlName="supplier"
+                                [hidden]="true"
+                                class="form-control col-lg-12 col-sm-12 receipts">
+            </kendo-dropdownlist>
+          </div>
+          
+        </div>
+        <!--<label for="status" class="col-lg-12 labelQuestion">
+          Status
+        </label>-->
+        <input id="status"
+               class="form-control col-lg-12 col-sm-12" formControlName="status" [hidden]="true"/>
+        <label for="remarks" class="col-lg-12 labelQuestion">
+          Remarks
+        </label>
+        <textarea id="action" style="height:100px"
+                  class="form-contrl col-lg-12 col-sm-12"
+                  formControlName="remarks">
+         </textarea>
+      </div>
+      <modal-receipts-grid (sendToParent)="fromReceiptsGrid($event)" [info]="info"></modal-receipts-grid>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-primary"  (click)="saveReceipts('save')"><i class="fa fa-floppy-o" aria-hidden="true"></i> Save</button>
+      <!--<button type="button" class="btn btn-success" *ngIf="info.status === 'Draft'" (click)="saveReceipts('finalize')"><i class="fa fa-floppy-o" aria-hidden="true"></i> Finalize</button>-->
+      <button type="button" class="btn btn-danger" (click)="closeModal()"><i class="fa fa-times" aria-hidden="true"></i> Cancel</button>
+    </div>
+
+  </form>
+</div>

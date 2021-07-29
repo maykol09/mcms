@@ -1,0 +1,69 @@
+<div class="row form-group" style="margin-bottom:0px;">
+  <div class="col-md-6">
+    <h5 class="text-primary" style="font-size: 2rem">
+      <i class="fa fa-share-square" aria-hidden="true"></i> Stocks Issued
+    </h5>
+  </div>
+</div>
+<kendo-grid 
+            [ngStyle]="styleHeight"
+            [selectable]="{
+                checkboxOnly: true,
+                mode: 'multiple'
+            }"
+            [data]="gridData"
+            [filterable]="showFilter"
+            [filter]="state.filter"
+            [skip]="skip"
+            [sort]="sort"
+            [sortable]="{mode: 'single'}"
+            (sortChange)="sortChange($event)"
+            (dataStateChange)="filterChange($event)"
+            [kendoGridSelectBy]="medication_id"
+            [selectedKeys]="mySelection">
+
+  <ng-template kendoGridToolbarTemplate>
+
+    <div class="showFilter checkbox checkbox-primary">
+      <input [checked]="showFilter" type="checkbox" class="k-checkbox" id="showHideIssuedFilter" (click)="showHideFilter()">
+      <label for="showHideIssuedFilter" class="k-checkbox-label">
+        <i class="fa fa-filter"
+           aria-hidden="true"></i> Show Filter
+      </label>
+    </div>
+
+    <!--<button type="button" class="k-primary btn btn-danger float-right margin36" (click)="DeleteAllSelected()" style="margin-left:10px;">
+      <i class="fa fa-trash" aria-hidden="true"></i> Delete
+    </button>
+    <button type="button" class="k-primary btn btn-primary float-right margin36" (click)="AddData('', 'I')">
+      <i class="fa fa-plus" aria-hidden="true"></i> New Data
+    </button>-->
+
+  </ng-template>
+  <!--<kendo-grid-checkbox-column width="8px">
+    <ng-template kendoGridHeaderTemplate>
+      <input class="k-checkbox" id="selectAllCheckboxId" kendoGridSelectAllCheckbox
+             (selectAllChange)="onSelectAllChange($event)">
+      <label class="k-checkbox-label" for="selectAllCheckboxId" style="width:11px;"></label>
+    </ng-template>
+  </kendo-grid-checkbox-column>
+  <kendo-grid-column width="15px">
+    <ng-template kendoGridCellTemplate let-dataItem>
+      <button type="button" class="k-primary btn btn-primary btn-sm" (click)="AddData(dataItem.consult_med_id, 'U')">
+        <i class="fa fa-pencil" aria-hidden="true"></i>
+      </button> &nbsp;
+    </ng-template>
+  </kendo-grid-column>-->
+  <kendo-grid-column field="date_consulted" title="Date Consulted" width="30">
+    <ng-template kendoGridFooterTemplate let-column let-aggregates let-columnIndex="columnIndex">
+      <span style="font-weight:700"> Total Records : {{TotalRecords()}}</span>
+    </ng-template>
+  </kendo-grid-column>
+  <kendo-grid-column field="full_name" title="Name" width="50"></kendo-grid-column>
+  <kendo-grid-column field="quantity" title="Quantity" width="20">
+    <ng-template kendoGridFooterTemplate let-column let-aggregates>
+    <span style="font-weight:700"> Total : {{TotalQuantity()}}</span>
+    </ng-template>
+  </kendo-grid-column>
+  <kendo-grid-column field="dosage" title="Dosage" width="20"></kendo-grid-column>
+</kendo-grid>

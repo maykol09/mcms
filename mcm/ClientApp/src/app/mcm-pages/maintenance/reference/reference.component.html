@@ -1,0 +1,85 @@
+<div class="formsPage row">
+  <kendo-grid responsiveHeightDirective
+              style="width:100%;"
+              id="refGrid"
+              [resizable]="true"
+              [data]="gridData"
+              [filterable]="showFilter"
+              [filter]="state.filter"
+              [pageable]='true'
+              [pageSize]="pageSize"
+              [skip]="skip"
+              (pageChange)="pageChange($event)"
+              [sort]="sort"
+              [sortable]="true"
+              (add)="AddData($event)"
+              (cellClick)="EditData($event)"
+              (sortChange)="sortChange($event)"
+              (dataStateChange)="filterChange($event)">
+
+    <ng-template kendoGridToolbarTemplate>
+      <div class="checkbox checkbox-primary" style="display:inline-block;">
+        <input [checked]="showFilter" type="checkbox" class="k-checkbox" id="showHideConFilter" (click)="showHideFilter()">
+        <label for="showHideConFilter" class="k-checkbox-label">
+          <i class="fa fa-filter"
+             aria-hidden="true"></i> Show Filter
+        </label>
+
+      </div>
+      <button type="button" class="k-primary btn btn-success float-right margin36" (click)="SaveReference()" style="margin-left:10px;">
+        <i class="fa fa-floppy-o" aria-hidden="true"></i> Save
+      </button>
+      <button *ngIf="isInEditingMode"
+              (click)="cancelHandler()"
+              style="margin-left:10px;"
+              class="k-primary btn btn-danger float-right margin36">
+        <i class="fa fa-times" aria-hidden="true"></i> Cancel
+      </button>
+      <button kendoGridAddCommand type="button" class="k-primary btn btn-primary float-right margin36">
+        <i class="fa fa-plus" aria-hidden="true"></i> Add Reference
+      </button>
+    </ng-template>
+    <kendo-grid-column [width]="7">
+      <ng-template kendoGridCellTemplate let-dataItem>
+        <div class="float-right">
+          <button type="button" class="k-primary btn btn-danger btn-sm" (click)="DeleteSelected(dataItem.ref_id)" style="margin-left:10px;">
+            <i class="fa fa-trash" aria-hidden="true"></i>
+          </button>
+
+        </div>
+      </ng-template>
+      <ng-template kendoGridEditTemplate let-column="column" let-formGroup="formGroup" let-isNew="isNew">
+        <span></span>
+      </ng-template>
+    </kendo-grid-column>
+    <kendo-grid-column field="ref_name" title="Reference Name" width="40">
+      <ng-template kendoGridEditTemplate let-column="column" let-formGroup="formGroup" let-isNew="isNew">
+        <input class="form-control col-lg-12 col-sm-12"
+               [formControl]="formGroup.get('ref_name')"
+               type="text" />
+      </ng-template>
+    </kendo-grid-column>
+    <kendo-grid-column field="ref_type" title="Reference Type" width="40">
+      <ng-template kendoGridEditTemplate let-column="column" let-formGroup="formGroup" let-isNew="isNew">
+        <kendo-dropdownlist [data]="ref_type"
+                            [filterable]="true"
+                            [textField]="'name'"
+                            [valueField]="'name'"
+                            [valuePrimitive]="true"
+                            (filterChange)="RefTypeFilterChange($event)"
+                            [formControl]="formGroup.get('ref_type')">
+        </kendo-dropdownlist>
+      </ng-template>
+    </kendo-grid-column>
+    <kendo-grid-column field="ref_code" title="Reference Code" width="40">
+      <ng-template kendoGridEditTemplate let-column="column" let-formGroup="formGroup" let-isNew="isNew">
+        <input class="form-control col-lg-12 col-sm-12"
+               [formControl]="formGroup.get('ref_code')"
+               type="text" />
+      </ng-template>
+    </kendo-grid-column>
+
+   
+
+  </kendo-grid>
+</div>

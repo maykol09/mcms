@@ -1,0 +1,54 @@
+<form [formGroup]="addMedication">
+  <div class="modal-header">
+    <h5 class="modal-title"><i class="fa fa-address-book"></i>  Add medication</h5>
+    <!--<button type="button" class="close" aria-describedby="modal-title" (click)="modal.close('cancel')">
+      <span aria-hidden="true">&times;</span>
+    </button>-->
+  </div>
+  <div class="modal-body">
+    <div class="form-group col-lg-12 col-sm-12">
+      <!--<label for="addYear" class="col-lg-12 labelQuestion">
+    D<span class="required">*</span>
+  </label>
+  <kendo-datepicker format="dd MMM yyyy"
+                    placeholder="dd MMM yyyy"
+                    [ngClass]="{'redBorder': formControl.date_consulted.invalid && formControl.date_consulted.touched}"
+                    formControlName="date_consulted">
+  </kendo-datepicker>-->
+      <label for="medicine" class="col-lg-12 labelQuestion">
+        Medicine<span class="required">*</span>
+      </label>
+      <input id="medicine"
+             class="form-contrl col-lg-12 col-sm-12"
+             [ngClass]="{'redBorder': formControl.medicine.invalid && formControl.medicine.touched}"
+             formControlName="medicine" />
+
+      <label for="quantity" class="col-lg-12 labelQuestion">
+        Quantity
+      </label>
+      <input id="quantity"
+             class="form-contrl col-lg-12 col-sm-12"
+             formControlName="med_quantity" />
+
+      <label for="dosage" class="col-lg-12 labelQuestion">
+        Dosage
+
+      </label>
+      <input id="dosage"
+             class="form-contrl col-lg-12 col-sm-12"
+             formControlName="dosage" />
+      <label for="dateGiven" class="col-lg-12 labelQuestion">
+        Date given
+      </label>
+      <kendo-datepicker format="dd MMM yyyy"
+                        placeholder="dd MMM yyyy"
+                        formControlName="date_given">
+      </kendo-datepicker>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <!--<button type="button" class="btn btn-success" (click)="Save()">Yes</button>
+    <button type="button" class="btn btn-danger" (click)="modal.close('cancel')">Cancel</button>-->
+  </div>
+
+</form>

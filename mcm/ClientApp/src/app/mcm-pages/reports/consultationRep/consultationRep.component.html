@@ -1,0 +1,74 @@
+<div class="row form-group" style="margin-bottom:0px;">
+  <!--<div class="col-md-6">
+    <h5 class="text-primary" style="font-size: 2rem">
+      <i class="fa fa-address-book"></i> Consultation Details
+    </h5>
+  </div>-->
+</div>
+<kendo-grid responsiveHeightDirective
+            style="width:100%;"
+            [resizable]="true"
+            [data]="gridData"
+            [filterable]="showFilter"
+            [filter]="state.filter"
+            [pageable]='true'
+            [pageSize]="pageSize"
+            [skip]="skip"
+            (pageChange)="pageChange($event)"
+            [sort]="sort"
+            [sortable]="true"
+            (sortChange)="sortChange($event)"
+            (dataStateChange)="filterChange($event)"
+            [kendoGridSelectBy]="true"
+           >
+
+  <ng-template kendoGridToolbarTemplate>
+
+    <div class="checkbox checkbox-primary" style="display:inline-block;">
+      <input [checked]="showFilter" type="checkbox" class="k-checkbox" id="showHideConFilter" (click)="showHideFilter()">
+      <label for="showHideConFilter" class="k-checkbox-label">
+        <i class="fa fa-filter"
+           aria-hidden="true"></i> Show Filter
+      </label>
+
+    </div>
+    <div class="searchField">
+      <label for="dateFrom" class="searchRepLabel">Date from:</label>
+      <kendo-datepicker id="dateFrom"
+                        class="searchRepinput"
+                        format="dd MMM yyyy"
+                        [(ngModel)]="from"
+                        placeholder="dd MMM yyyy">
+      </kendo-datepicker>
+      <label for="dateTo" class="searchRepLabel">To:</label>
+      <kendo-datepicker id="dateTo"
+                        [(ngModel)]="to"
+                        class="searchRepinput"
+                        format="dd MMM yyyy"
+                        placeholder="dd MMM yyyy">
+      </kendo-datepicker>
+      <button type="button" class="btn btn-sm btn-primary" style="margin-left:5px;" (click)="GetConsultationReports()">
+        <i class="fa fa-search" aria-hidden="true"></i> Search
+      </button>
+      <!--<label for="reason" class="searchRepLabel">Reason:</label>
+      <input id="reason" type="text" class="form-control searchRepinput" />
+      <label for="category" class="searchRepLabel">Staff Category:</label>
+      <input id="category" type="text" class="form-control searchRepinput" />
+      <label for="diagnosisi" class="searchRepLabel">Diagnosis:</label>
+      <input id="diagnosisi" type="text" class="form-control searchRepinput" />-->
+    </div>
+    <button type="button" class="k-primary btn btn-primary float-right margin36" kendoGridExcelCommand>
+      <i class="fa fa-file-excel-o" aria-hidden="true"></i> Export to excel
+    </button>
+  </ng-template>
+  <kendo-grid-column field="date_consulted" title="Date consulted" width="100"></kendo-grid-column>
+  <kendo-grid-column field="staff" title="Staff Name" width="200"></kendo-grid-column>
+  <kendo-grid-column field="staff_category" title="Staff Category" width="100"></kendo-grid-column>
+  <kendo-grid-column field="complaints" title="Reason for Visit" width="200"></kendo-grid-column>
+  <kendo-grid-column field="diagnosis" title="Chief Complaint/Diagnosis" width="350">
+    
+  </kendo-grid-column>
+
+  <kendo-grid-column field="treatment" title="Action taken" width="350"></kendo-grid-column>
+  <kendo-grid-excel fileName="Consultation Report.xlsx" [fetchData]="allData" [filterable]="true"></kendo-grid-excel>
+</kendo-grid>
