@@ -16,10 +16,12 @@ import { IssuedMedicineModule } from './issuedMed/issuedMed.module';
 import { CustomConfirmDeleteModalModule } from 'src/app/shared/modal/confirmDelete/confirmDelete.module';
 import { TooltipModule } from "@progress/kendo-angular-tooltip";
 import { TabStocksModule } from './tabStocks/tabStocks.module';
+import { AppGuard } from "../../app.guard";
 
 const routes: Routes = [{
   path: 'medicines',
-  component: MedicineComponent
+  component: MedicineComponent,
+  canActivate : [AppGuard]
 }]
 
 @NgModule({

@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace mcm.Controllers
 {
+    [Authorize]
 
     [Route("api/[controller]")]
     [ApiController]

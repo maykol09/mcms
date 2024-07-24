@@ -9,10 +9,12 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Routes, RouterModule } from '@angular/router';
 import { ReceiptsModalModule } from "./modal/receiptsModal.module";
+import { AppGuard } from "../../app.guard";
 
 const routes: Routes = [{
   path: "receipts",
-  component: ReceiptsComponent
+  component: ReceiptsComponent,
+  canActivate : [AppGuard]
 }]
 
 @NgModule({

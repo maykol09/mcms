@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using mcm_DATA.Entities;
 using mcm_DATA.Interface;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -11,6 +12,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace mcm.Controllers
 {
+    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class MedicineController : Controller

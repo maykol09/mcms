@@ -2,6 +2,7 @@ using mcm_DATA.Interface;
 using mcm_DATA.Interface.Service;
 using mcm_DATA.Repository;
 using mcm_DATA.Service;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -15,6 +16,8 @@ using Microsoft.Extensions.DependencyInjection.Extensions;
 using NBC_DATA.Context;
 using NBC_DATA.Interface.AdoProcedure;
 using NBC_DATA.Repository;
+using System.Text.Json;
+using Microsoft.Identity.Web;
 
 namespace mcm
 {
@@ -30,8 +33,19 @@ namespace mcm
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
-            services.TryAddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+            //services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+            //services.TryAddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddMicrosoftIdentityWebApi(Configuration);
+            services.AddAuthorization();
+
+            // In production, the Angular files will be served from this directory
+            services.AddControllers().AddJsonOptions(o =>
+            {
+                o.JsonSerializerOptions.PropertyNamingPolicy = JsonNamingPolicy.CamelCase;
+                o.JsonSerializerOptions.DictionaryKeyPolicy = JsonNamingPolicy.CamelCase;
+                o.JsonSerializerOptions.PropertyNameCaseInsensitive = true;
+                o.JsonSerializerOptions.WriteIndented = true;
+            });
             // In production, the Angular files will be served from this directory
             services.AddTransient<IDatabaseContextFactory, DatabaseContextFactory>(seriveProvider =>
             {
@@ -58,6 +72,11 @@ namespace mcm
             {
                 configuration.RootPath = "ClientApp/dist";
             });
+            services.AddControllersWithViews().AddJsonOptions(options =>
+            {
+                options.JsonSerializerOptions.PropertyNamingPolicy = null;
+
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -75,14 +94,20 @@ namespace mcm
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();
-            app.UseSpaStaticFiles();
-            app.UseAuthentication();
-
-            app.UseMvc(routes =>
+            if (!env.IsDevelopment())
             {
-                routes.MapRoute(
+                app.UseSpaStaticFiles();
+            }
+
+            app.UseRouting();
+
+            app.UseAuthentication();
+            app.UseAuthorization();
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapControllerRoute(
                     name: "default",
-                    template: "{controller}/{action=Index}/{id?}");
+                    pattern: "{controller}/{action=Index}/{id?}");
             });
 
             app.UseSpa(spa =>
@@ -94,7 +119,7 @@ namespace mcm
 
                 if (env.IsDevelopment())
                 {
-                    spa.UseAngularCliServer(npmScript: "start");
+                    spa.UseProxyToSpaDevelopmentServer("http://localhost:4200");
                 }
             });
         }

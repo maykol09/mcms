@@ -11,4 +11,4 @@ C:\Users\ogdocm\source\repos\mcm\mcm-DATA\obj\Debug\netcoreapp2.1\mcm-DATA.dll
 C:\Users\ogdocm\source\repos\mcm\mcm-DATA\obj\Debug\netcoreapp2.1\mcm-DATA.pdb
 C:\Users\ogdocm\source\repos\mcm\mcm-DATA\bin\Debug\netcoreapp2.1\Microsoft.AspNetCore.Hosting.dll
 C:\Users\ogdocm\source\repos\mcm\mcm-DATA\bin\Debug\netcoreapp2.1\Microsoft.AspNetCore.Hosting.xml
-C:\Users\ogdocm\source\repos\mcm\mcm-DATA\obj\Debug\netcoreapp2.1\mcm-DATA.csprojAssemblyReference.cache
+C:\Users\ogdocm\source\repos\mcm\mcm-DATA\obj\Debug\netcoreapp2.1\mcm-DATA.csproj.AssemblyReference.cache

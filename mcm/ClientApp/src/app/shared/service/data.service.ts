@@ -15,15 +15,25 @@ export class DataSharedService {
   dataFromNav = new BehaviorSubject('');
   heightFromConsultation: BehaviorSubject<string> = new BehaviorSubject('');
   heightFromReceived: BehaviorSubject<string> = new BehaviorSubject('');
+  showRouteResult: BehaviorSubject<boolean> = new BehaviorSubject(false);
+  hideNav: BehaviorSubject<boolean> = new BehaviorSubject(false);
   apiUrl = "";
   getMedicine: any;
   getSupplier: any;
   getReason: any;
   getUser: any;
+
+
   constructor(private util: UtilitiesService, private http: HttpClient) {
     this.apiUrl = util.getApiUrl();
   }
 
+  GetHideNav(data : boolean) {
+    this.hideNav.next(data);
+  }
+  GetShowRouteResult(data: boolean) {
+    this.showRouteResult.next(data);
+  }
   GetMedicine() {
     return this.getMedicine;
   }

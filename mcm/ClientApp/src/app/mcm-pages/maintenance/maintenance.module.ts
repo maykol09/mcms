@@ -10,15 +10,18 @@ import { ReferenceComponent } from './reference/reference.component';
 import { DateInputsModule } from '@progress/kendo-angular-dateinputs';
 import { CustomDirectiveModule } from 'src/app/shared/directives/custom.directive.module';
 import { DropDownsModule } from '@progress/kendo-angular-dropdowns';
+import { AppGuard } from "../../app.guard";
 
 const routes: Routes = [
-{
-  path: 'maintenance/user',
-  component: UserComponent
-}, {
-  path: 'maintenance/reference',
-  component: ReferenceComponent
-}]
+  {
+    path: 'maintenance/user',
+    component: UserComponent,
+    canActivate: [AppGuard]
+  }, {
+    path: 'maintenance/reference',
+    component: ReferenceComponent,
+    canActivate: [AppGuard]
+  }]
 
 @NgModule({
   imports: [

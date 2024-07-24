@@ -13,7 +13,7 @@ namespace mcm.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    [AllowAnonymous]
+    [Authorize]
     public class StaffListController : Controller
     {
         private readonly IStaffListRepository IStaffList;

@@ -18,9 +18,8 @@ export class UtilitiesService {
 
     if (this.url[2].includes('localhost')) { //dev
       apiUrl = this.url[0] + '//' + this.url[2] + '/';
-    } else if (this.url[2].includes('wpvmdev83')) { //uat
-      apiUrl = this.url[0] + '//' + this.url[2] + '/mcms/';
-    } else if (this.url[2].includes('apps.wpro.who.int')) { //prod
+    }
+    else {
       apiUrl = this.url[0] + '//' + this.url[2] + '/mcms/';
     }
     return apiUrl;

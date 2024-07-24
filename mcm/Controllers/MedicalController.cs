@@ -11,8 +11,9 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace mcm.Controllers
 {
+    [Authorize]
     [Route("api/[controller]")]
-    [AllowAnonymous]
+
     [ApiController]
     public class MedicalController : Controller
     {

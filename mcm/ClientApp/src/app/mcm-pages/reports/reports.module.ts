@@ -9,10 +9,12 @@ import { LayoutModule } from "@progress/kendo-angular-layout";
 import { ConsultationRepModule } from "./consultationRep/consultationRep.module";
 import { MedicationRepModule } from './medicationRep/medicationRep.module';
 import { MedicineRepModule } from "./medicineRep/medicineRep.module";
+import { AppGuard } from "../../app.guard";
 
 const routes: Routes = [{
   path: "reports/:id",
-  component: ReportsComponent
+  component: ReportsComponent,
+  canActivate : [AppGuard]
 }]
 
 @NgModule({

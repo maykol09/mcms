@@ -32,7 +32,7 @@ namespace mcm_DATA.Repository
                     userAccess.user_name = row["user_name"].ToString();
                     userAccess.user_level = Convert.ToInt16(row["user_level"]);
                     userAccess.created_by = row["created_by"].ToString();
-                    userAccess.date_created = Convert.ToDateTime(row["date_created"]);
+                    userAccess.date_created = Convert.ToDateTime(row["date_created"]).ToString();
                     list_userAcess.Add(userAccess);
                 }
                 return list_userAcess;

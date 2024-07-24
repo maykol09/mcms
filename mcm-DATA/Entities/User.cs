@@ -18,7 +18,7 @@ namespace mcm_DATA.Entities
         public string user_name { get; set; }
         public int user_level { get; set; }
         public string created_by { get; set; }
-        public DateTime date_created { get; set; }
+        public string date_created { get; set; }
         public string action { get; set; }
     }
 }

@@ -96,7 +96,7 @@ namespace mcm_DATA.Repository
             sb.AppendLine("(");
             sb.AppendLine(" med_id INT NOT NULL,");
             sb.AppendLine(" consult_med_id INT NULL,");
-            sb.AppendLine(" medicine VARCHAR(50) NULL,");
+            sb.AppendLine(" medicine VARCHAR(255) NULL,");
             sb.AppendLine(" dosage VARCHAR(50) NULL,");
             sb.AppendLine(" quantity VARCHAR(50) NULL,");
             sb.AppendLine(" action VARCHAR(5) NULL,");

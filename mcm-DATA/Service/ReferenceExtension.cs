@@ -56,7 +56,7 @@ namespace mcm_DATA.Service
                 var user = new LibUser();
                 user.person_id = Convert.ToInt32(row["person_id"]);
                 user.user_name = row["user_name"].ToString();
-                user.name = row["name"].ToString();
+                //user.name = row["name"].ToString();
                 user_list.Add(user);
             }
             return user_list;

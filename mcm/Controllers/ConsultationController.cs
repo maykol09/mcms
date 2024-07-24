@@ -12,9 +12,10 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace mcm.Controllers
 {
+    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
-    [AllowAnonymous]
+ 
     public class ConsultationController : Controller
     {
         private readonly IConsultationRepository repo;

@@ -1,0 +1,14 @@
+C:\Users\ogdocm\source\repos\mcm\mcm-DATA\bin\Debug\netcoreapp3.1\mcm-DATA.deps.json
+C:\Users\ogdocm\source\repos\mcm\mcm-DATA\bin\Debug\netcoreapp3.1\mcm-DATA.dll
+C:\Users\ogdocm\source\repos\mcm\mcm-DATA\bin\Debug\netcoreapp3.1\mcm-DATA.pdb
+C:\Users\ogdocm\source\repos\mcm\mcm-DATA\bin\Debug\netcoreapp3.1\CryptLib.dll
+C:\Users\ogdocm\source\repos\mcm\mcm-DATA\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Hosting.dll
+C:\Users\ogdocm\source\repos\mcm\mcm-DATA\bin\Debug\netcoreapp3.1\System.Data.SqlClient.dll
+C:\Users\ogdocm\source\repos\mcm\mcm-DATA\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Hosting.xml
+C:\Users\ogdocm\source\repos\mcm\mcm-DATA\obj\Debug\netcoreapp3.1\mcm-DATA.AssemblyInfoInputs.cache
+C:\Users\ogdocm\source\repos\mcm\mcm-DATA\obj\Debug\netcoreapp3.1\mcm-DATA.AssemblyInfo.cs
+C:\Users\ogdocm\source\repos\mcm\mcm-DATA\obj\Debug\netcoreapp3.1\mcm-DATA.csproj.CoreCompileInputs.cache
+C:\Users\ogdocm\source\repos\mcm\mcm-DATA\obj\Debug\netcoreapp3.1\mcm-DATA.csproj.CopyComplete
+C:\Users\ogdocm\source\repos\mcm\mcm-DATA\obj\Debug\netcoreapp3.1\mcm-DATA.dll
+C:\Users\ogdocm\source\repos\mcm\mcm-DATA\obj\Debug\netcoreapp3.1\mcm-DATA.pdb
+C:\Users\ogdocm\source\repos\mcm\mcm-DATA\obj\Debug\netcoreapp3.1\mcm-DATA.csproj.AssemblyReference.cache

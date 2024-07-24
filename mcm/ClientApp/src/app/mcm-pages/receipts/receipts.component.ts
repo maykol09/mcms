@@ -86,7 +86,7 @@ export class ReceiptsComponent {
       {
         backdrop: 'static',
         keyboard: false,
-        size: 'xl',
+        size: 'lg',
 
       });
     var filterData = _.filter(this.data_unchanged, {'si_id': si_id})

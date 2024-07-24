@@ -15,10 +15,12 @@ import { BrowserModule } from '@angular/platform-browser';
 import { MedicalModule } from './medical/medical.module';
 import { MedicationModule } from './medication/medication.module';
 import { CustomConfirmDeleteModalModule } from 'src/app/shared/modal/confirmDelete/confirmDelete.module';
+import { AppGuard } from "../../app.guard";
 
-const routes : Routes = [{
-    path: 'staffList',
-    component: StaffListComponent
+const routes: Routes = [{
+  path: 'staffList',
+  component: StaffListComponent,
+  canActivate: [AppGuard]
 }]
 
 @NgModule({
@@ -38,11 +40,11 @@ const routes : Routes = [{
     MedicationModule,
     MedicalModule,
     CustomConfirmDeleteModalModule
-    
+
   ],
   declarations: [StaffListComponent]
 })
 
-export class StaffListModule{
+export class StaffListModule {
 
 }
