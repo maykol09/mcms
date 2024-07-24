@@ -56,8 +56,8 @@ export class StaffListComponent implements AfterViewInit {
   medicalHid = true;
   consultationHid = false;
 
-  @ViewChild('img') img: ElementRef;
-  @ViewChild('consult') consultHeight: ElementRef;
+  @ViewChild('img', { static: false }) img: ElementRef;
+  @ViewChild('consult', { static: false }) consultHeight: ElementRef;
 
 
   constructor(private staffService: StaffListService,

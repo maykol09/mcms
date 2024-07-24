@@ -56,7 +56,7 @@ export class MedicationGridComponent implements OnInit, OnDestroy {
   sub: any;
   oldQuantity: number;
   med_id: number;
-  @ViewChild(GridComponent) private grid: GridComponent;
+  @ViewChild(GridComponent, { static: true }) private grid: GridComponent;
   @Input() person_id: any;
   @Output() sendToParent = new EventEmitter<any>();
 

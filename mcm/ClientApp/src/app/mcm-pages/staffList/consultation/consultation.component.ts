@@ -44,7 +44,7 @@ export class ConsultationComponent implements AfterViewInit {
   public pageSize = 20;
   selectedConsult = [];
   @Input() person_id: any;
-  @ViewChild('gridHeight') gridHeight: ElementRef;
+  @ViewChild('gridHeight', { static: false }) gridHeight: ElementRef;
   constructor(private service: ConsultationService,
     private util: UtilitiesService,
     private _modal: NgbModal,

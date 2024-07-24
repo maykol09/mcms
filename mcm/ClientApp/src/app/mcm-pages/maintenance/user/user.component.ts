@@ -50,7 +50,7 @@ export class UserComponent {
   isSave = false;
   user_name = [];
   user_name_unchange = [];
-  @ViewChild(GridComponent) private grid: GridComponent;
+  @ViewChild(GridComponent, { static: true }) private grid: GridComponent;
   constructor(private util: UtilitiesService,
     private dataService: DataSharedService,
     private service: MaintenanceService,

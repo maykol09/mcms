@@ -51,7 +51,7 @@ export class ReferenceComponent {
   isSave = false;
   ref_type = [{ name: "REASON_FOR_VISIT" }, { name: "SUPPLIER" }]
   ref_type_unchange = this.ref_type.slice();
-  @ViewChild(GridComponent) private grid: GridComponent;
+  @ViewChild(GridComponent, { static: true }) private grid: GridComponent;
   constructor(private util: UtilitiesService,
     private dataService: DataSharedService,
     private service: MaintenanceService,

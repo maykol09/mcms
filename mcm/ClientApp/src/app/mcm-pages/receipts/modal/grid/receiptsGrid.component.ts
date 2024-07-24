@@ -53,7 +53,7 @@ export class ReceiptsGridComponent implements OnInit, OnDestroy {
   addedCount = 0;
   withActionData: any;
   sub: any;
-  @ViewChild(GridComponent) private grid: GridComponent;
+  @ViewChild(GridComponent, { static: true }) private grid: GridComponent;
   @Input() info: any;
   @Output() sendToParent = new EventEmitter<any>();
 

@@ -12,7 +12,7 @@ export class TabDetailsComponent {
   personId: number;
   @Input() person_id: number;
   selectedTab: number = 0;
-  @ViewChild('consult') consultHeight: ElementRef;
+  @ViewChild('consult', { static: false }) consultHeight: ElementRef;
 
   constructor(private dataService: DataSharedService) {
 

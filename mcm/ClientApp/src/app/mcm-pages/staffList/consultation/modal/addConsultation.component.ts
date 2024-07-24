@@ -34,9 +34,9 @@ export class AddConsultationComponent implements AfterViewInit, OnInit {
   reasonList_unchange: any;
   currentDiagnosisFilter: any = "";
   currentReasonFilter: any = "";
-  @ViewChild('gridHeight') gridHeight: ElementRef;
-  @ViewChild("diagnosisAutocomplete") public diagnosisAutocomplete: any;
-  @ViewChild("reasonAutocomplete") public reasonAutocomplete: any;
+  @ViewChild('gridHeight', { static: false }) gridHeight: ElementRef;
+  @ViewChild("diagnosisAutocomplete", { static: true }) public diagnosisAutocomplete: any;
+  @ViewChild("reasonAutocomplete", { static: false }) public reasonAutocomplete: any;
   constructor(
     private util: UtilitiesService,
     private _modal: NgbModal,

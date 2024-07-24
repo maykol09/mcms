@@ -12,7 +12,7 @@ export class TabStocksComponent {
   medId: number;
   @Input() med_id: number;
   selectedTab: number = 0;
-  @ViewChild('medicine') medicineHeight: ElementRef;
+  @ViewChild('medicine', { static: false }) medicineHeight: ElementRef;
 
   constructor(private dataService: DataSharedService) {
 

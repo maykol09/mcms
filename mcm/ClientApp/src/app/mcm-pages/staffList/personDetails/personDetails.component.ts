@@ -30,7 +30,7 @@ export class PersonDetailsComponent {
   name_unchange: any[];
   addNew = true;
  
-  @ViewChild('autocomplete') autocomplete: AutoCompleteComponent;
+  @ViewChild('autocomplete', { static: true }) autocomplete: AutoCompleteComponent;
   constructor(private service: PersonDetailsService,
     private util: UtilitiesService,
     private refService: DataSharedService,

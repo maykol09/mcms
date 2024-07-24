@@ -44,7 +44,7 @@ export class MedicationComponent {
   styleHeight: any;
   heightSub: any;
   @Input() person_id: any;
-  @ViewChild('gridHeight') gridHeight: ElementRef;
+  @ViewChild('gridHeight', { static: false }) gridHeight: ElementRef;
 
   constructor(private service: MedicationService,
     private util: UtilitiesService,

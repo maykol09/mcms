@@ -53,8 +53,8 @@ export class MedicineComponent {
     this.loadStaff('')
     this.offset();
   }
-  @ViewChild(TooltipDirective) public tooltipDir: TooltipDirective;
-  @ViewChild('medicine') medicineHeight: ElementRef;
+  @ViewChild(TooltipDirective, { static: true }) public tooltipDir: TooltipDirective;
+  @ViewChild('medicine', { static: false }) medicineHeight: ElementRef;
   public showTooltip(e: MouseEvent): void {
     const element = e.target as HTMLElement;
     console.log(element.nodeName);
